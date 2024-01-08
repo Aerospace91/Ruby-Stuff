@@ -1,17 +1,16 @@
-# require 'pry-byebug'
-# binding.pry
+# frozen_string_literal: true
 
-dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
+dictionary = %w[below down go going horn how howdy it i low own part partner sit]
 
 def substring(string, dictionary)
-    result = Hash.new(0)
-    lowered = string.downcase
-    dictionary.each do |word|
-        if lowered.include?(word)
-            result[word] += 1
-        end
+  result = Hash.new(0)
+  lowered = string.downcase
+  dictionary.each do |word|
+    if lowered.include?(word)
+      result[word] += 1
     end
-    result
+  end
+  result
 end
 
-puts substring("Howdy partner, sit down! How's it going?", dictionary)
+puts substring('Howdy partner', dictionary)
